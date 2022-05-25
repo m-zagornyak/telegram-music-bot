@@ -1,0 +1,9 @@
+python-dotenv
+aiogram==2.20
+aioify==0.4.1
+deezloader==2022.3.5
+requests==2.27.1
+mutagen==1.45.1
+Pillow==9.1.0
+yt-dlp==2022.4.
+pytest
