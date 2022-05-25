@@ -27,9 +27,6 @@ jobs:
         flake8-flags: ''
         mapy-flags: ''
         fail-on-isort: true
-      with:
-          context: ./
-          file: Docerfile
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
