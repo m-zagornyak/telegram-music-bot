@@ -41,7 +41,8 @@ downloading_users = []
 
 
 
-LANGS_FILE = json.load( open(r'langs.json') )
+
+LANGS_FILE = json.load( open(r'handlers\\users\\langs.json') )
 LANG = os.environ.get('BOT_LANG')
 
 if LANG is not None:
@@ -49,7 +50,6 @@ if LANG is not None:
 else:
     print("Lang : en")
     LANG = 'en'
-
 
 def __(s):
     return LANGS_FILE[s][LANG]
