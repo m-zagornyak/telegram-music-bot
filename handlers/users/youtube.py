@@ -41,7 +41,7 @@ downloading_users = []
 
 
 
-LANGS_FILE = json.load( open(r'E:\\python\\Music-telegram-bot\\utils\\langs.json') )
+LANGS_FILE = json.load( open(r'..\\..\\utils\\langs.json') )
 LANG = os.environ.get('BOT_LANG')
 
 if LANG is not None:
