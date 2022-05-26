@@ -139,7 +139,7 @@ async def get_youtube_audio(event: types.Message):
                 pass
         except Exception as e:
             traceback.print_exc()
-            await event.answer(__('download_error') + ' ' + str(e))
+            await event.answer(('download_error') + ' ' + str(e))
         finally:
             await tmp_msg.delete()
             try:
@@ -147,7 +147,7 @@ async def get_youtube_audio(event: types.Message):
             except ValueError:
                 pass
     else:
-        tmp_err_msg = await event.answer(__('running_download'))
+        tmp_err_msg = await event.answer(('running_download'))
         await event.delete()
         await asyncio.sleep(2)
         await tmp_err_msg.delete()
