@@ -7,7 +7,7 @@ import os
 import shutil
 import traceback
 
-from loader import dp, bot
+from loader import dp, bot, LANG, LANGS_FILE
 from data.config import DEEZER_TOKEN
 
 import deezloader.deezloader
@@ -42,8 +42,8 @@ downloading_users = []
 
 
 
-LANGS_FILE = json.load( open(r'langs.json') )
-LANG = os.environ.get('BOT_LANG')
+LANGS_FILE = LANGS_FILE
+LANG = LANG
 
 if LANG is not None:
     print("Lang : " + LANG)
