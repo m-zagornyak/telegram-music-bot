@@ -40,8 +40,8 @@ download = deezloader_async.DeeLogin(DEEZER_TOKEN)
 downloading_users = []
 
 
-"""
-LANGS_FILE = json.load( open(r'..\\..\\utils\\langs.json') )
+
+LANGS_FILE = json.load( open(r'.langs.json') )
 LANG = os.environ.get('BOT_LANG')
 
 if LANG is not None:
@@ -53,7 +53,7 @@ else:
 
 def __(s):
     return LANGS_FILE[s][LANG]
-"""
+
 
 def crop_center(pil_img, crop_width, crop_height):
     img_width, img_height = pil_img.size
