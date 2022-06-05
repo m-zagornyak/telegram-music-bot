@@ -1,27 +1,23 @@
 import asyncio
 import io
-import json
 import locale
 
 import os
 import shutil
 import traceback
 
-from loader import dp, bot, LANG, LANGS_FILE
-from data.config import DEEZER_TOKEN
-
-import deezloader.deezloader
 import requests
 from PIL import Image
 from aiogram import types
 
-from aioify import aioify
 from mutagen.id3 import ID3, APIC, error
 from mutagen.mp3 import MP3
 from yt_dlp import YoutubeDL
 
-locale.setlocale(locale.LC_TIME, '')
+from loader import dp, LANG, LANGS_FILE
 
+
+locale.setlocale(locale.LC_TIME, '')
 
 try:
     os.mkdir("tmp")
@@ -34,13 +30,7 @@ except FileExistsError:
     pass
 
 
-deezloader_async = aioify(obj=deezloader.deezloader, name='deezloader_async')
-
-download = deezloader_async.DeeLogin(DEEZER_TOKEN)
 downloading_users = []
-
-
-
 
 LANGS_FILE = LANGS_FILE
 LANG = LANG
@@ -50,6 +40,7 @@ if LANG is not None:
 else:
     print("Lang : en")
     LANG = 'en'
+
 
 def __(s):
     return LANGS_FILE[s][LANG]
@@ -139,7 +130,7 @@ async def get_youtube_audio(event: types.Message):
                 pass
         except Exception as e:
             traceback.print_exc()
-            await event.answer(('download_error') + ' ' + str(e))
+            await event.answer('download_error' + ' ' + str(e))
         finally:
             await tmp_msg.delete()
             try:
@@ -147,9 +138,7 @@ async def get_youtube_audio(event: types.Message):
             except ValueError:
                 pass
     else:
-        tmp_err_msg = await event.answer(('running_download'))
+        tmp_err_msg = await event.answer('running_download')
         await event.delete()
         await asyncio.sleep(2)
         await tmp_err_msg.delete()
-
-
