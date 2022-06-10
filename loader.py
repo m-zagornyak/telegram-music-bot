@@ -17,6 +17,16 @@ LANG = os.environ.get('BOT_LANG')
 
 dp = Dispatcher(bot)
 
+try:
+    os.mkdir("tmp")
+except FileExistsError:
+    pass
+
+try:
+    os.mkdir("tmp/yt/")
+except FileExistsError:
+    pass
+
 
 def check_sub_channel(chat_member):
     if chat_member['status'] != 'left':

@@ -1,13 +1,15 @@
 import asyncio
-import json
 import locale
 
 import os
 import shutil
 from urllib.parse import quote
 
-from loader import dp
-from data.config import DEEZER_TOKEN
+from loader import dp, LANG, LANGS_FILE
+from data.config import (
+    DEEZER_TOKEN, 
+    API_URL, 
+    DEFAULT_QUALITY)
 
 import deezloader.deezloader
 import requests
@@ -21,15 +23,13 @@ from mutagen.mp3 import MP3
 
 locale.setlocale(locale.LC_TIME, '')
 
-DEEZER_URL = "https://deezer.com"
-API_URL = "https://api.deezer.com"
 
 API_TRACK = API_URL + "/track/%s"
 API_ALBUM = API_URL + "/album/%s"
 API_SEARCH_TRK = API_URL + "/search/track/?q=%s"
 API_PLAYLIST = API_URL + "/playlist/%s"
 
-DEFAULT_QUALITY = "MP3_320"
+
 
 try:
     os.mkdir("tmp")
@@ -42,8 +42,6 @@ deezloader_async = aioify(obj=deezloader.deezloader, name='deezloader_async')
 download = deezloader_async.DeeLogin(DEEZER_TOKEN)
 downloading_users = []
 
-LANGS_FILE = json.load( open(r'E:\\python\\Music-telegram-bot\\utils\\langs.json') )
-LANG = os.environ.get('BOT_LANG')
 
 if LANG is not None:
     print("Lang : " + LANG)

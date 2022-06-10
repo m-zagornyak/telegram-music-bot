@@ -19,21 +19,10 @@ from loader import dp, LANG, LANGS_FILE
 
 locale.setlocale(locale.LC_TIME, '')
 
-try:
-    os.mkdir("tmp")
-except FileExistsError:
-    pass
-
-try:
-    os.mkdir("tmp/yt/")
-except FileExistsError:
-    pass
 
 
 downloading_users = []
 
-LANGS_FILE = LANGS_FILE
-LANG = LANG
 
 if LANG is not None:
     print("Lang : " + LANG)
