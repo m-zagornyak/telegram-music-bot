@@ -19,8 +19,6 @@ from loader import dp, LANG, LANGS_FILE
 
 locale.setlocale(locale.LC_TIME, '')
 
-
-
 downloading_users = []
 
 
